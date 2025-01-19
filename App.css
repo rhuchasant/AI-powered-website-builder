@@ -1,0 +1,659 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Add animated background */
+@keyframes gradientMovement {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(
+    -45deg,
+    #242423,
+    #2a2a29,
+    #242423,
+    #1f1f1e
+  );
+  background-size: 400% 400%;
+  animation: gradientMovement 15s ease infinite;
+  color: #E8EDDF;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Navbar Styles */
+.navbar {
+  background: linear-gradient(
+    to right,
+    rgba(36, 36, 35, 0.9),
+    rgba(51, 53, 51, 0.9)
+  );
+  backdrop-filter: blur(10px);
+  padding: 1.5rem;
+  border-bottom: 1px solid rgba(245, 203, 92, 0.2);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  list-style-type: none;
+}
+
+.nav-item {
+  color: #F5CB5C;
+  margin-left: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.nav-icon {
+  margin-right: 0.5rem;
+}
+
+.nav-item:hover {
+  color: #E8EDDF;
+  transform: translateY(-2px);
+}
+
+/* Updated Carousel Styles */
+.carousel-container {
+  width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+  box-sizing: border-box;
+  min-width: 800px;
+  max-width: 800px;
+  overflow: hidden;
+}
+
+.carousel {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(36, 36, 35, 0.95),
+    rgba(51, 51, 51, 0.95)
+  );
+  border-radius: 12px;
+  padding: 3rem 4rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-content {
+  text-align: center;
+  padding: 2rem 1rem;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+/* Updated Carousel Input Style */
+.carousel-input {
+  width: 600px;
+  padding: 1.5rem;
+  background: rgba(207, 219, 213, 0.1);
+  border: 1px solid rgba(245, 203, 92, 0.2);
+  border-radius: 8px;
+  color: #E8EDDF;
+  font-size: 1.2rem;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  box-sizing: border-box;
+}
+
+/* Rest of the styles remain the same */
+.carousel-title {
+  font-size: 2.5rem;
+  color: #F5CB5C;
+  margin-bottom: 1rem;
+}
+
+.carousel-description {
+  font-size: 1.1rem;
+  color: #CFDBD5;
+  margin-bottom: 2rem;
+}
+
+/* Carousel Navigation */
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(245, 203, 92, 0.2);
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #F5CB5C;
+  z-index: 2;
+}
+
+.carousel-button:hover {
+  background: rgba(245, 203, 92, 0.4);
+}
+
+.carousel-button.prev {
+  left: -24px;
+}
+
+.carousel-button.next {
+  right: -24px;
+}
+
+.input-slide {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+
+.sparkle-icon {
+  position: absolute;
+  right: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F5CB5C;
+}
+
+/* Color Picker Styles */
+.color-picker-section {
+  margin-top: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.color-picker-section label {
+  font-size: 1.2rem;
+  color: #E8EDDF;
+  margin-right: 15px;
+}
+
+#color-picker {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 60px;
+  height: 60px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}
+
+#color-picker::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#color-picker::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #F5CB5C;
+}
+
+#color-picker::-moz-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #F5CB5C;
+}
+
+.fetch-color-scheme {
+  padding: 12px 24px;
+  background-color: #F5CB5C;
+  color: #242423;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.fetch-color-scheme:hover {
+  background-color: #e5bb4c;
+  transform: translateY(-2px);
+}
+
+.color-scheme {
+  margin-top: 30px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.color-scheme h3 {
+  font-size: 1.8rem;
+  color: #F5CB5C;
+  margin-bottom: 20px;
+}
+
+.color-palette {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.color-swatch {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.color-swatch:hover {
+  transform: scale(1.05);
+}
+
+/* Submit Button Styles */
+.submit-button {
+  background: #F5CB5C;
+  color: #242423;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 2rem auto 0;
+  min-width: 200px;
+}
+
+.submit-button:hover {
+  background-color: #e5bb4c;
+  transform: translateY(-2px);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.submit-button .spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+/* Carousel Dots */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 2rem;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(245, 203, 92, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+  background: #F5CB5C;
+}
+
+/* Loading Animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Add subtle floating particles effect */
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(20px);
+    opacity: 0;
+  }
+}
+
+.particle {
+  position: fixed;
+  width: 3px;
+  height: 3px;
+  background: rgba(245, 203, 92, 0.15);
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+/* Create multiple particles with different animations */
+.particle:nth-child(1) { animation: float 8s infinite; left: 10%; }
+.particle:nth-child(2) { animation: float 10s infinite; left: 20%; animation-delay: 2s; }
+.particle:nth-child(3) { animation: float 7s infinite; left: 30%; animation-delay: 4s; }
+.particle:nth-child(4) { animation: float 9s infinite; left: 40%; animation-delay: 1s; }
+.particle:nth-child(5) { animation: float 11s infinite; left: 50%; animation-delay: 3s; }
+.particle:nth-child(6) { animation: float 8s infinite; left: 60%; animation-delay: 5s; }
+.particle:nth-child(7) { animation: float 10s infinite; left: 70%; animation-delay: 2s; }
+.particle:nth-child(8) { animation: float 9s infinite; left: 80%; animation-delay: 4s; }
+.input-slide {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.carousel-input {
+  flex: 1; /* This makes the input field take available space */
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px; /* Add space between input and button */
+}
+
+.mic-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 24px;
+  color: #e3dada;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mic-button.listening i {
+  color: red; /* Change color when listening */
+}
+
+.mic-button:hover {
+  opacity: 0.8;
+}
+
+.sparkle-icon {
+  margin-left: 10px; /* Space between the mic button and sparkles */
+}
+
+.sections-slide {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+
+
+
+.section-creator {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+
+
+.sections-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+
+
+.section-item {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  background-color: rgba(207, 219, 213, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  border: 1px solid rgba(245, 203, 92, 0.2);
+}
+
+
+
+
+.section-item:hover {
+  background-color: rgba(207, 219, 213, 0.15);
+}
+
+
+
+
+.section-inputs {
+  display: flex;
+  gap: 1rem;
+  flex: 1;
+}
+
+
+
+
+.section-input {
+  flex: 1;
+  padding: 0.75rem;
+  border: 1px solid rgba(245, 203, 92, 0.2);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  background: rgba(207, 219, 213, 0.1);
+  color: #E8EDDF;
+}
+
+
+
+
+.section-input:focus {
+  outline: none;
+  border-color: #F5CB5C;
+  box-shadow: 0 0 0 3px rgba(245, 203, 92, 0.1);
+}
+
+
+
+
+.section-input::placeholder {
+  color: rgba(232, 237, 223, 0.5);
+}
+
+
+
+
+.remove-section {
+  padding: 0.5rem;
+  border: none;
+  background-color: rgba(245, 203, 92, 0.2);
+  color: #F5CB5C;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+
+.remove-section:hover {
+  background-color: rgba(245, 203, 92, 0.3);
+}
+
+
+
+
+.section-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+
+
+
+.add-section, .create-sections {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+
+
+
+.add-section {
+  background-color: rgba(207, 219, 213, 0.1);
+  color: #F5CB5C;
+  border: 1px solid rgba(245, 203, 92, 0.2);
+}
+
+
+
+
+.add-section:hover {
+  background-color: rgba(207, 219, 213, 0.15);
+}
+
+
+
+
+.create-sections {
+  background-color: #F5CB5C;
+  color: #242423;
+}
+
+
+
+
+.create-sections:hover {
+  background-color: #e5bb4c;
+}
+
+
+
+
+.generated-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+
+
+
+.section-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+
+
+
+.section-input-group label {
+  font-weight: 500;
+  color: #F5CB5C;
+}
+
+
+
+
+.section-content-input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid rgba(245, 203, 92, 0.2);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  background: rgba(207, 219, 213, 0.1);
+  color: #E8EDDF;
+}
+
+
+
+
+.section-content-input:focus {
+  outline: none;
+  border-color: #F5CB5C;
+  box-shadow: 0 0 0 3px rgba(245, 203, 92, 0.1);
+}
+
+
+
+
+.section-content-input::placeholder {
+  color: rgba(232, 237, 223, 0.5);
+}
